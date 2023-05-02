@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: hsl(0, 0%, 94%);
+  padding: 5%;
+  line-height: 1.2;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 20px 20px 100px 20px;
+  padding: 30px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container form {
+  width: 100%;
+  border-bottom: solid 1px hsl(0, 0%, 86%);
+  position: relative;
+  padding-bottom: 2rem;
+}
+.container form label {
+  color: hsl(0, 1%, 44%);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.container form .label-active {
+  color: hsl(0, 100%, 67%);
+}
+.container form input {
+  border: solid 1px hsl(0, 0%, 86%);
+  outline: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: 800;
+  width: 90%;
+  font-size: 16px;
+}
+.container form .input-active {
+  border: solid 1px hsl(0, 100%, 67%);
+}
+.container form .form-input-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5%;
+}
+.container form .form-input-section .form-input {
+  display: flex;
+  flex-direction: column;
+}
+.container form .error {
+  visibility: hidden;
+  color: hsl(0, 100%, 67%);
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+.container form .error-active {
+  visibility: visible;
+}
+.container form button {
+  border-radius: 500px;
+  border: none;
+  background-color: hsl(259, 100%, 65%);
+  background-image: url("assets/images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  height: 50px;
+  width: 50px;
+  transition: 0.2s ease;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: -25px;
+}
+.container form button:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 8%);
+}
+.container .result {
+  margin-top: 3rem;
+  font-weight: 800;
+  font-style: italic;
+}
+.container .result p {
+  font-size: 2.8rem;
+}
+.container .result span {
+  color: hsl(259, 100%, 65%);
+  font-size: 2.8rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    padding: 40px;
+  }
+  .container form {
+    padding-bottom: 3rem;
+  }
+  .container form .form-input-section {
+    width: 90%;
+  }
+  .container form button {
+    position: absolute;
+    right: 5%;
+    bottom: -30px;
+    height: 60px;
+    width: 60px;
+  }
+  .container .result {
+    margin-top: 3rem;
+  }
+  .container .result p {
+    font-size: 4rem;
+  }
+  .container .result span {
+    font-size: 4rem;
+  }
+}/*# sourceMappingURL=style.css.map */

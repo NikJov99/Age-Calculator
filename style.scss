@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+// Poppins 400i, 700, 800i
+
+// colors:
+$Purple: hsl(259, 100%, 65%);
+$LightRed: hsl(0, 100%, 67%);
+$White: hsl(0, 0%, 100%);
+$OffWhite: hsl(0, 0%, 94%);
+$LightGrey: hsl(0, 0%, 86%);
+$SmokeyGrey: hsl(0, 1%, 44%);
+$OffBlack: hsl(0, 0%, 8%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: $OffWhite;
+  padding: 5%;
+  line-height: 1.2;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 20px 20px 100px 20px;
+  padding: 30px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  form {
+    width: 100%;
+    border-bottom: solid 1px $LightGrey;
+    position: relative;
+    padding-bottom: 2rem;
+
+    label {
+      color: $SmokeyGrey;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .label-active {
+      color: $LightRed;
+    }
+
+    input {
+      border: solid 1px $LightGrey;
+      outline: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-weight: 800;
+      width: 90%;
+      font-size: 16px;
+    }
+
+    .input-active {
+      border: solid 1px $LightRed;
+    }
+
+    .form-input-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 5%;
+
+      .form-input {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .error {
+      visibility: hidden;
+      color: $LightRed;
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+
+    .error-active {
+      visibility: visible;
+    }
+
+    button {
+      border-radius: 500px;
+      border: none;
+      background-color: $Purple;
+      background-image: url("assets/images/icon-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      height: 50px;
+      width: 50px;
+      transition: 0.2s ease;
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+      bottom: -25px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $OffBlack;
+      }
+    }
+  }
+
+  .result {
+    margin-top: 3rem;
+    font-weight: 800;
+    font-style: italic;
+
+    p {
+      font-size: 2.8rem;
+    }
+
+    span {
+      color: $Purple;
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    padding: 40px;
+
+    form {
+      padding-bottom: 3rem;
+
+      .form-input-section {
+        width: 90%;
+      }
+
+      button {
+        position: absolute;
+        right: 5%;
+        bottom: -30px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+
+    .result {
+      margin-top: 3rem;
+
+      p {
+        font-size: 4rem;
+      }
+
+      span {
+        font-size: 4rem;
+      }
+    }
+  }
+}
