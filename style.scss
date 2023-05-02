@@ -2,13 +2,13 @@
 // Poppins 400i, 700, 800i
 
 // colors:
-$Purple: hsl(259, 100%, 65%);
-$LightRed: hsl(0, 100%, 67%);
-$White: hsl(0, 0%, 100%);
-$OffWhite: hsl(0, 0%, 94%);
-$LightGrey: hsl(0, 0%, 86%);
-$SmokeyGrey: hsl(0, 1%, 44%);
-$OffBlack: hsl(0, 0%, 8%);
+$purple: hsl(259, 100%, 65%);
+$lightRed: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$offWhite: hsl(0, 0%, 94%);
+$lightGrey: hsl(0, 0%, 86%);
+$smokeyGrey: hsl(0, 1%, 44%);
+$offBlack: hsl(0, 0%, 8%);
 
 * {
   padding: 0;
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  background-color: $OffWhite;
+  background-color: $offWhite;
   padding: 5%;
   line-height: 1.2;
   height: 100vh;
@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  background-color: #fff;
+  background-color: $white;
   border-radius: 20px 20px 100px 20px;
   padding: 30px;
   max-width: 600px;
@@ -38,19 +38,19 @@ body {
 
   form {
     width: 100%;
-    border-bottom: solid 1px $LightGrey;
+    border-bottom: solid 1px $lightGrey;
     position: relative;
     padding-bottom: 2rem;
 
     label {
-      color: $SmokeyGrey;
+      color: $smokeyGrey;
       font-size: 12px;
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
     }
 
     input {
-      border: solid 1px $LightGrey;
+      border: solid 1px $lightGrey;
       outline: none;
       border-radius: 5px;
       padding: 10px 15px;
@@ -72,7 +72,7 @@ body {
     }
 
     .error {
-      color: $LightRed;
+      color: $lightRed;
       font-size: 0.8rem;
       margin: 0.5rem 0;
       display: none;
@@ -84,18 +84,18 @@ body {
       }
 
       label {
-        color: $LightRed;
+        color: $lightRed;
       }
 
       input {
-        border-color: $LightRed;
+        border-color: $lightRed;
       }
     }
 
     button {
       border-radius: 500px;
       border: none;
-      background-color: $Purple;
+      background-color: $purple;
       background-image: url("assets/images/icon-arrow.svg");
       background-repeat: no-repeat;
       background-position: center;
@@ -110,7 +110,7 @@ body {
 
       &:hover {
         cursor: pointer;
-        background-color: $OffBlack;
+        background-color: $offBlack;
       }
     }
   }
@@ -126,7 +126,7 @@ body {
 
     span {
       transition: all 0.2s ease;
-      color: $Purple;
+      color: $purple;
       font-size: 2.8rem;
     }
   }
