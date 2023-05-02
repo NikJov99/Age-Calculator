@@ -1,0 +1,23 @@
+{
+  "name": "johni-kalkulator-godina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikJov99/Age-Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikJov99/Age-Calculator/issues"
+  },
+  "homepage": "https://github.com/NikJov99/Age-Calculator#readme",
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
+}

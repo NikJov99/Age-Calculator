@@ -49,10 +49,6 @@ body {
       margin-bottom: 0.5rem;
     }
 
-    .label-active {
-      color: $LightRed;
-    }
-
     input {
       border: solid 1px $LightGrey;
       outline: none;
@@ -61,10 +57,6 @@ body {
       font-weight: 800;
       width: 90%;
       font-size: 16px;
-    }
-
-    .input-active {
-      border: solid 1px $LightRed;
     }
 
     .form-input-section {
@@ -80,14 +72,24 @@ body {
     }
 
     .error {
-      visibility: hidden;
       color: $LightRed;
       font-size: 0.8rem;
       margin: 0.5rem 0;
+      display: none;
     }
 
-    .error-active {
-      visibility: visible;
+    .input-error {
+      .error {
+        display: block;
+      }
+
+      label {
+        color: $LightRed;
+      }
+
+      input {
+        border-color: $LightRed;
+      }
     }
 
     button {
@@ -123,6 +125,7 @@ body {
     }
 
     span {
+      transition: all 0.2s ease;
       color: $Purple;
       font-size: 2.8rem;
     }

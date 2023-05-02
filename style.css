@@ -37,9 +37,6 @@ body {
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
 }
-.container form .label-active {
-  color: hsl(0, 100%, 67%);
-}
 .container form input {
   border: solid 1px hsl(0, 0%, 86%);
   outline: none;
@@ -48,9 +45,6 @@ body {
   font-weight: 800;
   width: 90%;
   font-size: 16px;
-}
-.container form .input-active {
-  border: solid 1px hsl(0, 100%, 67%);
 }
 .container form .form-input-section {
   display: flex;
@@ -63,13 +57,19 @@ body {
   flex-direction: column;
 }
 .container form .error {
-  visibility: hidden;
   color: hsl(0, 100%, 67%);
   font-size: 0.8rem;
   margin: 0.5rem 0;
+  display: none;
 }
-.container form .error-active {
-  visibility: visible;
+.container form .input-error .error {
+  display: block;
+}
+.container form .input-error label {
+  color: hsl(0, 100%, 67%);
+}
+.container form .input-error input {
+  border-color: hsl(0, 100%, 67%);
 }
 .container form button {
   border-radius: 500px;
@@ -100,6 +100,7 @@ body {
   font-size: 2.8rem;
 }
 .container .result span {
+  transition: all 0.2s ease;
   color: hsl(259, 100%, 65%);
   font-size: 2.8rem;
 }
