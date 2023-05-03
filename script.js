@@ -66,46 +66,50 @@ const calculateAge = (event) => {
   const monthInputValue = monthInput.value;
   const yearInputValue = yearInput.value;
 
-  constResultDays = validateForm(
+  const isFormValid = validateForm(
     dayInputValue,
     monthInputValue,
     yearInputValue
   );
 
-  const birthDate = new Date(
-    parseInt(yearInputValue),
-    parseInt(monthInputValue) - 1,
-    parseInt(dayInputValue)
-  );
+  if (!isFormValid) {
+    return;
+  }
+
+  const dayInputValueInt = parseInt(dayInputValue);
+  const monthInputValueInt = parseInt(monthInputValue);
+  const yearInputValueInt = parseInt(yearInputValue);
 
   let userYears = 0;
   let userMonths = 0;
   let userDays = 0;
 
   userYears =
-    currentMonth + 1 > parseInt(monthInputValue) ||
-    (currentMonth + 1 === parseInt(monthInputValue) &&
-      currentDay >= parseInt(dayInputValue))
-      ? currentYear - parseInt(yearInputValue)
-      : currentYear - parseInt(yearInputValue) - 1;
+    currentMonth > monthInputValueInt ||
+    (currentMonth === monthInputValueInt && currentDay >= dayInputValueInt)
+      ? currentYear - yearInputValueInt
+      : currentYear - yearInputValueInt - 1;
 
-  userMonths =
-    currentDay - parseInt(dayInputValue) > 0
-      ? currentMonth + 1 - parseInt(monthInputValue)
-      : currentMonth + 1 > parseInt(monthInputValue)
-      ? currentMonth - parseInt(monthInputValue)
-      : 0;
+  if (currentDay >= dayInputValueInt) {
+    userMonths =
+      currentMonth >= monthInputValueInt
+        ? currentMonth - monthInputValueInt
+        : 12 - monthInputValueInt + currentMonth;
+  } else {
+    userMonths =
+      currentMonth >= monthInputValueInt
+        ? currentMonth - monthInputValueInt
+        : 12 - monthInputValueInt + currentMonth - 1;
+  }
 
   userDays =
-    userMonths > 0
-      ? currentDay - parseInt(dayInputValue)
-      : daysInMonths[parseInt(monthInputValue)] - parseInt(dayInputValue);
+    currentDay >= dayInputValueInt
+      ? currentDay - dayInputValueInt
+      : daysInMonths[currentMonth] - dayInputValueInt + currentDay;
 
-  if (!isNaN(userYears) && !isNaN(userMonths) && !isNaN(userDays)) {
-    resultYears.innerHTML = userYears;
-    resultMonths.innerHTML = userMonths;
-    resultDays.innerHTML = userDays;
-  }
+  resultYears.innerHTML = userYears;
+  resultMonths.innerHTML = userMonths;
+  resultDays.innerHTML = userDays;
 };
 
 const validateForm = (day, month, year) => {
@@ -119,13 +123,16 @@ const validateForm = (day, month, year) => {
   const monthErrorField = document.querySelector("#monthError");
   const yearErrorField = document.querySelector("#yearError");
   let isValidDate = true;
+  let isValid = true;
 
   if (day > daysInMonths[month - 1]) {
     isValidDate = false;
+    isValid = false;
   }
 
   if (day === "" || day > 31 || !isValidDate) {
     dayGroup.classList.add("input-error");
+    isValid = false;
   } else {
     dayGroup.classList.remove("input-error");
   }
@@ -136,6 +143,7 @@ const validateForm = (day, month, year) => {
 
   if (month === "" || month > 12 || !isValidDate) {
     monthGroup.classList.add("input-error");
+    isValid = false;
   } else {
     monthGroup.classList.remove("input-error");
   }
@@ -145,6 +153,7 @@ const validateForm = (day, month, year) => {
 
   if (year === "" || year > currentYear || !isValidDate) {
     yearGroup.classList.add("input-error");
+    isValid = false;
   } else {
     yearGroup.classList.remove("input-error");
   }
@@ -153,6 +162,8 @@ const validateForm = (day, month, year) => {
   year > currentYear
     ? (yearErrorField.innerHTML = "Must be in the past")
     : null;
+
+  return isValid;
 };
 
 form.addEventListener("submit", calculateAge);
